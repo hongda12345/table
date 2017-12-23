@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<style>
+    a{
+        color:#fff;
+    }
+</style>
+<body>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+            <%for(var i=0;i<data.length;i++){var u=data[i];%>
+            <tr>
+                <td><%=u.name%></td>
+                <td><%=u.age%></td>
+                <td><%=u.sex%></td>
+                <td width="140px;">
+                    <button class="btn btn-info" type="submit"><a href="/update?id=<%=data[i].id%>&name=<%=data[i].name%>&age=<%=data[i].age%>&sex=<%=data[i].sex%>">修改</a></button>
+                    <button class="btn btn-danger" type="submit"><a href="/del?id=<%=data[i].id%>">删除</a></button>
+                </td>
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+    <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-plus"><a href="/add">添加</a></span></button>
+</div>
+</body>
+</html>
